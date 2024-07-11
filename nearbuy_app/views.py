@@ -1,13 +1,17 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
+from django.http import HttpResponse
 from nearbuy_app.models import*
+# from django.core.mail import send_mail
 from django.contrib.auth import authenticate,login as auth_login,logout,login
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required
 def admin_index(request):
-    return render(request, "admin_index.html")
+    userdatas = register_user.objects.all()
+    return render(request, 'admin_index.html', {'userdatas': userdatas})
+    
 
 # views for registration /////////////
 
@@ -75,5 +79,21 @@ def admin_login(request):
     else:
         
         return render(request,"admin_login.html")
+
+
+#forgot password///////
+
+def forgot_password(request):
+
+    return render(request,'password_reset_done.html')
+
+    
+    #logout
+
+def admin_logout(request):
+    logout(request)
+    return redirect("admin_login")
+
+
 
 
