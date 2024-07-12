@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'nearbuy_app',
+    'deal_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
