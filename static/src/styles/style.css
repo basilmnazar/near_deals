@@ -551,7 +551,9 @@ textarea.form-control{
 
 
 /*//////........... Registration page ................................./////// */
-
+body{
+	background-color: #fff;
+}
 .form {
     display: flex;
     flex-direction: column;
@@ -561,12 +563,9 @@ textarea.form-control{
     padding: 20px;
     border-radius: 20px;
     position: relative;
-    left: 70px;
+    left: 50px;
   }
-  body{
-    background-color: #fff;
-    justify-content:center;
-  }
+
   
   .title {
     font-size: 38px;
@@ -695,6 +694,8 @@ top: 180px;
 	display: flex;
 	position: absolute;
 	justify-content: center;
+	width: 100%;
+	
 	
 }
 
@@ -709,13 +710,17 @@ top: 180px;
 		background-color: #fff;
 		padding: 20px;
 		border-radius: 20px;
+		left: auto;
+		
 		
 	}
-	.reg_main{
-	position: absolute;
-	
+	/* .reg_main{
+		display:block;
+		justify-content: center;
+		width:100%;
+		background-color: #00bcf2;
   	
-	}
+	} */
   }
   
 
@@ -1979,7 +1984,7 @@ body.IE .register-page-wrap .container{
 /*==============================================================
 	Register Page Start
 ==============================================================*/
-.register-page-wrap{
+/* .register-page-wrap{
 	position: relative;
 	height: calc(100% - 70px);
 	overflow: auto;
@@ -2020,10 +2025,10 @@ body.IE .register-page-wrap .container{
 }
 .register-page-wrap .wizard-content .wizard.wizard-circle>.steps>ul>li:after,
 .register-page-wrap .wizard-content .wizard.wizard-circle>.steps>ul>li:before{
-	/*display: none;*/
+	
 	background: rgba(24, 31, 72, .3);
-}
-.wizard-content .wizard.wizard-circle>.steps>ul>li.current~li:before,
+} */
+/* .wizard-content .wizard.wizard-circle>.steps>ul>li.current~li:before,
 .wizard-content .wizard.wizard-circle>.steps>ul>li.current~li:after{
 	background: rgba(24, 31, 72, .3);
 }
@@ -2083,7 +2088,7 @@ body.IE .register-page-wrap .container{
 .register-info li{
 	margin-bottom: 15px;
 	font-size: 14px;
-}
+} */
 /*.register-page-wrap .wizard-content .wizard > .content > .body.current{
 	-webkit-transform: translate(0px, 0px);
 	-moz-transform: translate(0px, 0px);
