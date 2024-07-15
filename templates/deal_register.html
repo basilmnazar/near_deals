@@ -20,14 +20,14 @@
 			<img src="{% static 'src/images/register.jpg' %}" alt="">
 		</div>
 	
-		<form class="form" action="{% url 'deal_register' %}" method="post">
+		<form class="form" action="{% url 'dealer_login' %}" method="post">
 		
 			{% csrf_token %}
 			
 			<p class="title">Register </p>
 				
                 <label for="merchant_type">
-                    <select class="input" name="m_type" required>
+                    <select class="input" name="merchant_type" required>
                         <option value="selected disabled">Select Merchant Type</option>
                         <option value="Hotel">Hotel</option>
                         <option value="Restaurent">Restaurent</option>
@@ -36,11 +36,11 @@
                     </select>
                 </label>
 				<label>
-					<input class="input" type="text" placeholder="" required="" name="fname">
+					<input class="input" type="text" placeholder="" required="" name="merchant_name">
 					<span>Merchant Name</span>
 				</label>
                 <label>
-					<input class="input" type="text" placeholder="" required="" name="address">
+					<input class="input" type="text" placeholder="" required="" name="merchant_address">
 					<span>Merchant Address</span>
 				</label>
 		
