@@ -94,3 +94,26 @@ def admin_logout(request):
 
 def index_main(request):
     return render(request,'index_main.html')
+
+
+# views for add field..../
+
+def add_fields(request):
+    if request.method == 'POST':
+        item_name = request.POST.get('item_name')
+        description = request.POST.get('description')
+        start_time = request.POST.get('time-from')
+        end_time = request.POST.get('time-to')
+        item_img = request.FILES.get('image')
+
+        model_add_fields.objects.create(
+            item_name=item_name, description=description, start_time=start_time, end_time=end_time,item_img=item_img)
+        return redirect('add-field.html')
+
+
+    # try
+    #         start_time = datetime.strptime(start_time_str, '%Y-%m-%dT%H:%M')
+    #         end_time = datetime.strptime(end_time_str, '%Y-%m-%dT%H:%M')
+    add_fields_data = model_add_fields.objects.all()
+    return render(request, 'add_fields.html', {'add_fields_data': add_fields_data})
+    

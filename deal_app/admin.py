@@ -4,3 +4,4 @@ from .models import*
 # Register your models here.
 
 admin.site.register( register_dealer)
+admin.site.register( model_add_fields)

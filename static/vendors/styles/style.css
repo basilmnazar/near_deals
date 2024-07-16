@@ -4279,3 +4279,57 @@ body.IE .register-page-wrap .container {
     display: none;
   }
 }
+
+/* ###for  add fields ////////////////////// */
+
+.sec_add_fields{
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: auto;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+.form-group input[type=text], 
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form-group input[type=file] {
+  margin-top: 4px;
+}
+.form-group .time-inputs {
+  display: flex;
+  gap: 10px;
+}
+.form-group .time-inputs input {
+  flex: 1;
+}
+.form-group .file-label {
+  margin-top: 8px;
+  display: block;
+}
+.form-group button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.form-group button:hover {
+  background-color: #45a049;
+}

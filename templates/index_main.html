@@ -13,6 +13,7 @@
     <meta name="description" content="">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'src/styles/index_main.css' %}"/>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +94,8 @@
 
     <div class="preloader-container">
       <div class="preloader-text">
-        <span>S</span><span>H</span><span>O</span><span>P</span><span>L</span><span>I</span><span>T</span><span>E</span>
+        <span>D</span><span>E</span><span>A</span><span>L</span><span>E</span><span>R</span>
+        <div class="loaderBar"></div>
       </div>
     </div>
 
@@ -140,13 +142,13 @@
         <div class="container-fluid">
           <div class="row g-0">
             <div class="col-md-4">
-              <p class="fs-6 my-2 text-center">Need any help? Call us <a href="#">112233344455</a></p>
+              {% comment %} <p class="fs-6 my-2 text-center">Need any help? Call us <a href="#">112233344455</a></p> {% endcomment %}
             </div>
             <div class="col-md-4 border-start border-end">
               <p class="fs-6 my-2 text-center">Summer sale discount off 60% off! <a class="text-decoration-underline" href="shop.html">Shop Now</a></p>
             </div>
             <div class="col-md-4">
-              <p class="fs-6 my-2 text-center">2-3 business days delivery & free returns</p>
+              {% comment %} <p class="fs-6 my-2 text-center">2-3 business days delivery & free returns</p> {% endcomment %}
             </div>
           </div>
         </div>
@@ -155,7 +157,7 @@
       <nav id="header-nav" class="navbar navbar-expand-lg py-3">
         <div class="container">
           <a class="navbar-brand" href="index.html">
-            <img src="images/main-logo.png" class="logo">
+            <img src="{% static 'src/images/deals_logo.png'%}" class="logo">
           </a>
           <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <svg class="navbar-icon">
