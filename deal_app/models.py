@@ -1,8 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import timezone
+from datetime import time
+from django.core.exceptions import ValidationError
 
-
+def validate_time_format(value):
+  try:
+    # Assuming your time fields are TimeFields
+    time.fromisoformat(value)  # Attempt conversion (ISO format)
+  except ValueError:
+    raise ValidationError('Invalid time format. Use HH:MM format.')
 
 # Create your models here.
 
@@ -16,8 +22,8 @@ class register_dealer(models.Model):
 
 
 class model_add_fields(models.Model):
-    item_name=models.CharField(max_length=255)
-    description=models.TextField(max_length=255)
-    start_time = models.DateTimeField()  # Using DateTimeField for date and time
-    end_time = models.DateTimeField()
-    item_img=models.ImageField(upload_to='images/',null=True,blank=True)
+  item_name = models.CharField(max_length=255, null=True,blank=True)
+  description = models.TextField(null=True, blank=True)
+  start_time = models.TimeField() 
+  end_time = models.TimeField()  # Add validator
+  item_img = models.ImageField(upload_to='images/', blank=True)  # Assuming image storage

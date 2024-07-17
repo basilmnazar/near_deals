@@ -504,61 +504,29 @@
     </section>
 
     <section id="categories">
+      
       <div class="container">
         <div class="section-title overflow-hidden mb-4">
           <h3 class="d-flex align-items-center">Categories</h3>
         </div>
+        {% for item in items %}
         <div class="row">
           <div class="col-md-2">
             <div class="card text-center py-4 mb-3 border rounded-3">
               <a href="shop.html">
-                <img src="images/cat-item1.png" class="img-fluid" alt="cart item">
-                <h5 class="mt-2"><a href="shop.html">Phones</a></h5>
+                <h5 class="mt-2"><a href="shop.html">{{item.item_name}}</a></h5>
+
               </a>
+              <img src="{{item.item_img.url}}" alt="">
+              <p>{{item.description}} </p>
+              <h5>{{item.start_time}}</h5>
+              <h5>{{item.end_time}}</h5>
+
             </div>
           </div>
-          <div class="col-md-2">
-            <div class="card text-center py-4 mb-3 border rounded-3">
-              <a href="shop.html">
-                <img src="images/cat-item2.png" class="img-fluid" alt="cart item">
-                <h5 class="mt-2"><a href="shop.html">PlayStations</a></h5>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="card text-center py-4 mb-3 border rounded-3">
-              <a href="shop.html">
-                <img src="images/cat-item3.png" class="img-fluid" alt="cart item">
-                <h5 class="mt-2"><a href="shop.html">Digital watches</a></h5>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="card text-center py-4 mb-3 border rounded-3">
-              <a href="shop.html">
-                <img src="images/cat-item4.png" class="img-fluid" alt="cart item">
-                <h5 class="mt-2"><a href="shop.html">Joysticks</a></h5>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="card text-center py-4 mb-3 border rounded-3">
-              <a href="shop.html">
-                <img src="images/cat-item5.png" class="img-fluid" alt="cart item">
-                <h5 class="mt-2"><a href="shop.html">EarPods</a></h5>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="card text-center py-4 mb-3 border rounded-3">
-              <a href="shop.html">
-                <img src="images/cat-item6.png" class="img-fluid" alt="cart item">
-                <h5 class="mt-2"><a href="shop.html">Laptops</a></h5>
-              </a>
-            </div>
-          </div>
+         
         </div>
-      </div>
+        {% endfor %}
     </section>
     
     <section id="best-selling-items" class="position-relative padding-large">

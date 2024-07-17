@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from deal_app.models import*
+from datetime import time
 # from django.core.mail import send_mail
 from django.contrib.auth import authenticate,login as auth_login,logout,login
 from django.contrib.auth.decorators import login_required
@@ -93,27 +94,44 @@ def admin_logout(request):
     return redirect("dealer_login")
 
 def index_main(request):
-    return render(request,'index_main.html')
+    items = model_add_fields.objects.all()
+    return render(request, 'index_main.html', {'items': items})
 
 
 # views for add field..../
 
+from datetime import datetime
+from django.shortcuts import render, redirect
+from .models import model_add_fields
+
 def add_fields(request):
     if request.method == 'POST':
-        item_name = request.POST.get('item_name')
+        # Extract data from the request
+        item_name = request.POST.get('item-name')
         description = request.POST.get('description')
-        start_time = request.POST.get('time-from')
-        end_time = request.POST.get('time-to')
+        start_time_str = request.POST.get('time-from')
+        end_time_str = request.POST.get('time-to')
         item_img = request.FILES.get('image')
 
-        model_add_fields.objects.create(
-            item_name=item_name, description=description, start_time=start_time, end_time=end_time,item_img=item_img)
-        return redirect('add-field.html')
+        # Basic validation (optional)
+        if not item_name or not description or not start_time_str or not end_time_str:
+            return render(request, 'add_fields.html', {'message': 'Please fill in all required fields'})
 
+        # Try converting time strings to time objects
+        try:
+            start_time = datetime.strptime(start_time_str, '%H:%M').time()  # Parse time in HH:MM format
+            end_time = datetime.strptime(end_time_str, '%H:%M').time()
+        except ValueError:
+            # Handle invalid time format
+            return render(request, 'add_fields.html', {'message': 'Invalid time format. Use HH:MM format.'})
 
-    # try
-    #         start_time = datetime.strptime(start_time_str, '%Y-%m-%dT%H:%M')
-    #         end_time = datetime.strptime(end_time_str, '%Y-%m-%dT%H:%M')
-    add_fields_data = model_add_fields.objects.all()
-    return render(request, 'add_fields.html', {'add_fields_data': add_fields_data})
-    
+        # Create a new model object
+        try:
+            new_field = model_add_fields.objects.create(
+                item_name=item_name, description=description, start_time=start_time, end_time=end_time, item_img=item_img)
+            return redirect('index_main')  # Redirect to index_main after successful creation
+        except Exception as e:  # Handle potential exceptions
+            return render(request, 'add_fields.html', {'message': f'Error adding item: {str(e)}'})
+
+    else:
+        return render(request, 'add_fields.html', {'message': 'Invalid request method'})

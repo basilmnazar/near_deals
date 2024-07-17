@@ -445,109 +445,93 @@ p {
 	background: #ecf0f4;
 	color: #1b00ff;
 }
-.form-group{
-	margin-bottom: 20px;
+/* ###############  add fields form//////////////////////////// */
+.sec_add_fields {
+    max-width: 800px; /* Adjust as needed */
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.form-group > label{
-	font-weight: 500;
-	font-size: 15px;
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
 }
-.form-control, .custom-select, .custom-file-input{
-	font-family: 'Inter', sans-serif;
-	color: #131e22;
-	font-weight: 400;
-	font-size: 14px;
-	height: 45px;
-	border-color: #d4d4d4;
-	border-radius: 8px;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
+
+label {
+    font-weight: bold;
 }
-.form-control.form-control-sm{
-	height: 38px;
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-.form-control.form-control-line{
-	border-left: 0;
-	border-right: 0;
-	border-top: 0;
-	border-radius: 0;
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
 }
-.custom-file-label{
-	font-family: 'Inter', sans-serif;
-	color: #131e22;
-	font-weight: 400;
-	height: 45px;
-	padding-top: .475rem;
-	border-color: #d4d4d4;
-	letter-spacing: 0.035em;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
+
+.time-inputs {
+    display: flex;
+    align-items: center;
 }
-.custom-file-label::after{
-	height: 100%;
-	padding-top: .475rem;
+
+.time-inputs input {
+    flex: 1; /* Flexible width */
+    margin-right: 10px;
 }
-textarea.form-control{
-	height: 180px;
+
+.file-label {
+    font-size: 14px;
+    color: #666;
 }
-.form-control:focus , .custom-select:focus, .custom-file-input:focus{
-	color: #131e22;
-	border-color: #1b00ff;
-	-webkit-box-shadow: 0px 0px 28px rgba(0, 0, 0, .1);
-	-moz-box-shadow: 0px 0px 28px rgba(0, 0, 0, .1);
-	box-shadow: 0px 0px 28px rgba(0, 0, 0, .1);
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
 }
-.form-control.height-auto{height: auto;}
-.input-group{
-	margin-bottom: 25px;
+
+button[type="submit"]:hover {
+    background-color: #45a049;
 }
-.input-group.custom > .form-control, .input-group.custom > .custom-select{
-	width: 100%;
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
 }
-.input-group.custom > .form-control:not(:first-child), .input-group.custom > .custom-select:not(:first-child){
-	-webkit-border-radius: 0.25rem;
-	-moz-border-radius: 0.25rem;
-	border-radius: 0.25rem;
-	padding-left: 50px;
+
+@media (max-width: 400px) {
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+        padding: 8px;
+    }
+
+    button[type="submit"] {
+        padding: 10px 16px;
+    }
 }
-.input-group.custom > .custom-select:not(:last-child), .input-group.custom > .form-control:not(:last-child){
-	-webkit-border-radius: 0.25rem;
-	-moz-border-radius: 0.25rem;
-	border-radius: 0.25rem;
-	padding-right: 50px;
-}
-.input-group-prepend.custom{
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 12;
-	height: 100%;
-}
-.input-group-append.custom{
-	position: absolute;
-	right: 0;
-	top: 0;
-	z-index: 12;
-	height: 100%;
-}
-.input-group-text{
-	border: 0;
-	background: transparent;
-}
-.input-group-text i{
-	font-size: 20px;
-}
-.form-control:focus ~ .input-group-append .fa{
-	color: #1b00ff;
-}
-.form-control-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-prepend > .input-group-text, .input-group-lg > .input-group-append > .input-group-text, .input-group-lg > .input-group-prepend > .btn, .input-group-lg > .input-group-append > .btn{
-	height: 50px;
-	font-size: 16px;
-}
+
 
 
 /*//////........... Registration page ................................./////// */

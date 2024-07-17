@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'src/styles/style.css' %}">
+    <link rel="stylesheet" href="{% static "src/styles/style.css" %}">
 </head>
 <body>
     <section class="sec_add_fields" >
-        <form  method="post" enctype="multipart/form-data">
+        <form  method="post" enctype="multipart/form-data" class="add_field_form" >
             {% csrf_token %}
             <div class="form-group">
                 <label for="item-name">Item Name:</label>
