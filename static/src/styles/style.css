@@ -507,6 +507,10 @@ button[type="submit"]:hover {
     background-color: #45a049;
 }
 
+img.img_spcl_food {
+height: 250px;
+}
+
 /* Responsive design */
 @media (max-width: 600px) {
     .container {

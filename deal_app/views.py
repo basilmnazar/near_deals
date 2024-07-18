@@ -2,7 +2,10 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from deal_app.models import*
-from datetime import time
+# from datetime import time
+from datetime import datetime
+from django.shortcuts import render, redirect
+from .models import model_add_fields
 # from django.core.mail import send_mail
 from django.contrib.auth import authenticate,login as auth_login,logout,login
 from django.contrib.auth.decorators import login_required
@@ -66,18 +69,17 @@ def deal_register(request):
 
 def dealer_login(request):
     if request.method == 'POST':
-        username=request.POST['uname']
-        password=request.POST['password']
+        username = request.POST.get('uname')
+        password = request.POST.get('password')
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('dealer_index')
+            return redirect('index_main')  # Redirect to 'index_main' URL name
         else:
-            return render(request,'dealer_login.html')
-    else:
-        
-        return render(request,"dealer_login.html")
+            return render(request, 'dealer_login.html', {'error_message': 'Invalid credentials'})
+
+    return render(request, 'dealer_login.html')
 
 
 #forgot password///////
@@ -100,9 +102,6 @@ def index_main(request):
 
 # views for add field..../
 
-from datetime import datetime
-from django.shortcuts import render, redirect
-from .models import model_add_fields
 
 def add_fields(request):
     if request.method == 'POST':

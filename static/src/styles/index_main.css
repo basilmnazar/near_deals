@@ -1137,3 +1137,8 @@ CSS STRUCTURE:
       margin-bottom: 10px;
     }
   }
+
+  /* ## add fields image csss//////////// */
+  img.img_spcl_food {
+    height: 250px;
+    }

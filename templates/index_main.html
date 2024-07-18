@@ -182,15 +182,18 @@
                 <li class="nav-item">
                   <a class="nav-link me-4" href="offer.html">Offer</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="contact.html">Contact</a>
+                </li>
                
                 <li class="nav-item dropdown">
-                  <a class="nav-link me-4 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pages</a>
+                  <a class="nav-link me-4 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Register</a>
                   <ul class="dropdown-menu animate slide border">
                     <li>
-                      <a href="about.html" class="dropdown-item fw-light">signup <span class="badge bg-primary">Pro</span></a>
+                      <a href="{% url 'admin_register' %}" class="dropdown-item fw-light">Register <span class="badge bg-primary">Pro</span></a>
                     </li>
                     <li>
-                      <a href="shop.html" class="dropdown-item fw-light">login <span class="badge bg-primary">Pro</span></a>
+                      <a href="{% url 'dealer_login' %}" class="dropdown-item fw-light">login <span class="badge bg-primary">Pro</span></a>
                     </li>
                     <li>
                       <a href="single-product.html" class="dropdown-item fw-light">logout <span class="badge bg-primary">Pro</span></a>
@@ -199,17 +202,15 @@
                    
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link me-4" href="contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
+               
+                <!-- <li class="nav-item">
                   <a class="nav-link me-4" href="signup.html">Signup</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-4" href="login.html">login</a>
-                </li>
+                </li> -->
               </ul>
-              <div class="user-items d-flex">
+              <!-- <div class="user-items d-flex">
                 <ul class="d-flex justify-content-end list-unstyled mb-0">
                   <li class="search-item pe-3">
                     <a href="#" class="search-button">
@@ -223,9 +224,9 @@
                       <svg class="user">
                         <use xlink:href="#user"></use>
                       </svg>
-                    </a>
+                    </a> -->
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -368,7 +369,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </nav>
 
     </header>
@@ -515,7 +516,7 @@
               <a href="shop.html">
                 <h5 class="mt-2"><a href="shop.html">{{ item.item_name }}</a></h5>
               </a>
-              <img src="{{ item.item_img.url }}" alt="{{ item.item_name }}">
+              <img class="img_spcl_food" src="{{ item.item_img.url }}" alt="{{ item.item_name }}">
               <p>{{ item.description }}</p>
               <h5>{{ item.start_time }}</h5>
               <h5>{{ item.end_time }}</h5>

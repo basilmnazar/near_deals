@@ -3,6 +3,17 @@ from django.contrib.auth.models import User
 from datetime import time
 from django.core.exceptions import ValidationError
 
+
+## functions for merchant type become a dropdown////
+drop_merchant_type =(
+  ("hotel", "Hotel"),
+  ("restuarent", "Restuarent"),
+  ("spa", "Spa"),
+  ("saloon", "Saloon")
+
+
+)
+
 def validate_time_format(value):
   try:
     # Assuming your time fields are TimeFields
@@ -14,7 +25,7 @@ def validate_time_format(value):
 
 class register_dealer(models.Model):
     merchant_name = models.CharField(max_length=255)
-    merchant_type=models.CharField(null=True,max_length=30)
+    drop_merchant_type=models.CharField(choices=drop_merchant_type, null=True,max_length=30)
     merchant_address=models.CharField(null=True,max_length=30)
     city=models.CharField(null=True,max_length=40)
     phone=models.IntegerField(null=True)
