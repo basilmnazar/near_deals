@@ -38,3 +38,15 @@ class model_add_fields(models.Model):
   start_time = models.TimeField() 
   end_time = models.TimeField()  # Add validator
   item_img = models.ImageField(upload_to='images/', blank=True)  # Assuming image storage
+
+
+##model for outlet details
+
+class model_outlet_details(models.Model):
+  item_name = models.CharField(max_length=255, null=True,blank=True)
+  description = models.TextField(null=True, blank=True)
+  item_price = models.IntegerField(max_length=8, null=True,blank=True)
+  about = models.TextField(null=True, blank=True)
+  start_time = models.TimeField() 
+  end_time = models.TimeField()  # Add validator
+  item_img = models.ImageField(upload_to='images/', blank=True)  # Assuming image storage

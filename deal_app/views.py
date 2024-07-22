@@ -94,7 +94,7 @@ def forgot_password(request):
 def admin_logout(request):
     logout(request)
     return redirect("dealer_login")
-
+# ////////////////////
 def index_main(request):
     items = model_add_fields.objects.all()
     return render(request, 'index_main.html', {'items': items})
@@ -128,9 +128,56 @@ def add_fields(request):
         try:
             new_field = model_add_fields.objects.create(
                 item_name=item_name, description=description, start_time=start_time, end_time=end_time, item_img=item_img)
-            return redirect('index_main')  # Redirect to index_main after successful creation
+            return redirect('outlet_add')  # Redirect to index_main after successful creation
         except Exception as e:  # Handle potential exceptions
             return render(request, 'add_fields.html', {'message': f'Error adding item: {str(e)}'})
 
     else:
         return render(request, 'add_fields.html', {'message': 'Invalid request method'})
+
+
+## functions for outlet_deatails 
+def outlet_deatails(request):
+    items = model_add_fields.objects.all()
+    outlet_datas = model_outlet_details.objects.all()
+    return render(request, 'outlet_deatails.html', {'outlet_datas': outlet_datas},{'items':items})
+ 
+
+## functions for outlet_adding
+
+def outlet_add(request):
+    
+    if request.method == 'POST':
+        # Extract data from the request
+        item_name = request.POST.get('item-name')
+        description = request.POST.get('description')
+        item_price = request.POST.get('item-price')
+        about = request.POST.get('about')
+        start_time_str = request.POST.get('time-from')
+        end_time_str = request.POST.get('time-to')
+        item_img = request.FILES.get('image')
+
+        # Basic validation (optional)
+        if not item_name or not description or not item_price or not about or not start_time_str or not end_time_str:
+            return render(request, 'outlet_add.html', {'message': 'Please fill in all required fields'})
+
+        # Try converting time strings to time objects
+        try:
+            start_time = datetime.strptime(start_time_str, '%H:%M').time()  # Parse time in HH:MM format
+            end_time = datetime.strptime(end_time_str, '%H:%M').time()
+        except ValueError:
+            # Handle invalid time format
+            return render(request, 'outlet_add.html', {'message': 'Invalid time format. Use HH:MM format.'})
+
+        # Create a new model object
+        try:
+            new_field = model_outlet_details.objects.create(
+                item_name=item_name, description=description,item_price=item_price,about=about, start_time=start_time, end_time=end_time, item_img=item_img)
+            return redirect('outlet_deatails')  # Redirect to index_main after successful creation
+        except Exception as e:  # Handle potential exceptions
+            return render(request, 'outlet_add.html', {'message': f'Error adding item: {str(e)}'})
+
+    else:
+        return render(request, 'outlet_add.html')
+
+

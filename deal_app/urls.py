@@ -7,5 +7,8 @@ urlpatterns =[
    path('dealer_login',dealer_login,name='dealer_login'),  
    path('',index_main,name='index_main'),
    path('add_fields',add_fields,name='add_fields'), 
+   path('outlet_deatails',outlet_deatails,name='outlet_deatails'),
+   path('outlet_add',outlet_add,name='outlet_add'),
+
   
 ]
